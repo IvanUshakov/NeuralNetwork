@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'NeuralNetwork' target in the 'NeuralNetwork' project
+//
+
+#ifdef __OBJC__
+	#import <Foundation/Foundation.h>
+#endif
