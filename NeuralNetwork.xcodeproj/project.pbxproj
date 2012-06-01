@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A974AE21578971F00A45F8C /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A974AE11578971F00A45F8C /* AppKit.framework */; };
+		2A974AE51578973000A45F8C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A974AE41578973000A45F8C /* QuartzCore.framework */; };
 		2AA5FDD215773F0400F70367 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA5FDD115773F0400F70367 /* Foundation.framework */; };
 		2AA5FDD515773F0400F70367 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5FDD415773F0400F70367 /* main.m */; };
 		2AA5FDD915773F0400F70367 /* NeuralNetwork.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2AA5FDD815773F0400F70367 /* NeuralNetwork.1 */; };
+		2AA5FDE115773F4A00F70367 /* NeuralNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5FDE015773F4A00F70367 /* NeuralNetwork.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,11 +29,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2A974AE11578971F00A45F8C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		2A974AE41578973000A45F8C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		2AA5FDCD15773F0400F70367 /* NeuralNetwork */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = NeuralNetwork; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AA5FDD115773F0400F70367 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2AA5FDD415773F0400F70367 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		2AA5FDD715773F0400F70367 /* NeuralNetwork-Prefix.pch */ = {isa = PBXFileReference; path = "NeuralNetwork-Prefix.pch"; sourceTree = "<group>"; };
+		2AA5FDD715773F0400F70367 /* NeuralNetwork-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NeuralNetwork-Prefix.pch"; sourceTree = "<group>"; };
 		2AA5FDD815773F0400F70367 /* NeuralNetwork.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = NeuralNetwork.1; sourceTree = "<group>"; };
+		2AA5FDDF15773F4A00F70367 /* NeuralNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NeuralNetwork.h; sourceTree = "<group>"; };
+		2AA5FDE015773F4A00F70367 /* NeuralNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NeuralNetwork.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +45,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A974AE51578973000A45F8C /* QuartzCore.framework in Frameworks */,
+				2A974AE21578971F00A45F8C /* AppKit.framework in Frameworks */,
 				2AA5FDD215773F0400F70367 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -48,6 +57,8 @@
 		2AA5FDC215773F0400F70367 = {
 			isa = PBXGroup;
 			children = (
+				2A974AE41578973000A45F8C /* QuartzCore.framework */,
+				2A974AE11578971F00A45F8C /* AppKit.framework */,
 				2AA5FDD315773F0400F70367 /* NeuralNetwork */,
 				2AA5FDD015773F0400F70367 /* Frameworks */,
 				2AA5FDCE15773F0400F70367 /* Products */,
@@ -76,6 +87,8 @@
 				2AA5FDD415773F0400F70367 /* main.m */,
 				2AA5FDD815773F0400F70367 /* NeuralNetwork.1 */,
 				2AA5FDD615773F0400F70367 /* Supporting Files */,
+				2AA5FDDF15773F4A00F70367 /* NeuralNetwork.h */,
+				2AA5FDE015773F4A00F70367 /* NeuralNetwork.m */,
 			);
 			path = NeuralNetwork;
 			sourceTree = "<group>";
@@ -140,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AA5FDD515773F0400F70367 /* main.m in Sources */,
+				2AA5FDE115773F4A00F70367 /* NeuralNetwork.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,6 +242,7 @@
 				2AA5FDDE15773F0400F70367 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
