@@ -23,45 +23,35 @@ int main(int argc, const char * argv[])
 	@autoreleasepool {
 		NeuralNetwork *network = [[NeuralNetwork alloc] initWithNumInputs:336 numHiddenNeurons:130 numOutputs:10];
 		
-		NSString *path = [NSString stringWithFormat:@"%@/numbers", [[NSFileManager defaultManager] currentDirectoryPath]];
-		NSURL *directoryURL = [NSURL fileURLWithPath:path];
-		NSDirectoryEnumerator *enumerator = [[NSFileManager defaultManager] enumeratorAtURL:directoryURL
-																 includingPropertiesForKeys:NULL
-																					options:NSDirectoryEnumerationSkipsSubdirectoryDescendants
-																			   errorHandler:^(NSURL *url, NSError *error) {return YES;}];
-		for (NSURL *url in enumerator) { 
-			NSInteger result = [[url lastPathComponent] integerValue];
-			NSDirectoryEnumerator *enumerator2 = [[NSFileManager defaultManager] enumeratorAtURL:url
-																	 includingPropertiesForKeys:NULL
-																						options:NSDirectoryEnumerationSkipsHiddenFiles
-																				   errorHandler:^(NSURL *url, NSError *error) {return YES;}];
-			for (NSURL *url in enumerator2) { 
-				float *array = imageFileToArray([url path]);
-				[network backwardPropagationWithInput:array result:result];
+//		NSString *path = [NSString stringWithFormat:@"%@/numbers", [[NSFileManager defaultManager] currentDirectoryPath]];
+//		NSURL *directoryURL = [NSURL fileURLWithPath:path];
+//		NSDirectoryEnumerator *enumerator = [[NSFileManager defaultManager] enumeratorAtURL:directoryURL
+//																 includingPropertiesForKeys:NULL
+//																					options:NSDirectoryEnumerationSkipsSubdirectoryDescendants
+//																			   errorHandler:^(NSURL *url, NSError *error) {return YES;}];
+//		for (NSURL *url in enumerator) { 
+//			NSInteger result = [[url lastPathComponent] integerValue];
+//			NSDirectoryEnumerator *enumerator2 = [[NSFileManager defaultManager] enumeratorAtURL:url
+//																	 includingPropertiesForKeys:NULL
+//																						options:NSDirectoryEnumerationSkipsHiddenFiles
+//																				   errorHandler:^(NSURL *url, NSError *error) {return YES;}];
+//			for (NSURL *url in enumerator2) { 
+//				[network backwardPropagationWithInput:imageFileToArray([url path]) result:result];
+//			}
+//		}
 
+		NSString *path = [NSString stringWithFormat:@"%@/numbers", [[NSFileManager defaultManager] currentDirectoryPath]];
+		for (NSInteger i = 0; i < 69; i++)
+			for (NSInteger j = 0; j <= 9; j++) {
+				NSString *path2 = [NSString stringWithFormat:@"%@/%d/%d.png", path, j, i];
+				[network backwardPropagationWithInput:imageFileToArray(path2) result:j];
 			}
-		}
 		
-		NSString  *inputPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/0.png"];
-		NSLog(@"%ld", [network forwardPropagationWithInput:imageFileToArray(inputPath)]);
-		inputPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/1.png"];
-		NSLog(@"%ld", [network forwardPropagationWithInput:imageFileToArray(inputPath)]);
-		inputPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/2.png"];
-		NSLog(@"%ld", [network forwardPropagationWithInput:imageFileToArray(inputPath)]);
-		inputPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/3.png"];
-		NSLog(@"%ld", [network forwardPropagationWithInput:imageFileToArray(inputPath)]);
-		inputPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/4.png"];
-		NSLog(@"%ld", [network forwardPropagationWithInput:imageFileToArray(inputPath)]);
-		inputPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/5.png"];
-		NSLog(@"%ld", [network forwardPropagationWithInput:imageFileToArray(inputPath)]);
-		inputPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/6.png"];
-		NSLog(@"%ld", [network forwardPropagationWithInput:imageFileToArray(inputPath)]);
-		inputPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/7.png"];
-		NSLog(@"%ld", [network forwardPropagationWithInput:imageFileToArray(inputPath)]);
-		inputPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/8.png"];
-		NSLog(@"%ld", [network forwardPropagationWithInput:imageFileToArray(inputPath)]);
-		inputPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/9.png"];
-		NSLog(@"%ld", [network forwardPropagationWithInput:imageFileToArray(inputPath)]);
+		NSString  *inputPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+		for (NSInteger i = 0; i <= 9; i++) {
+			NSString  *inputPath2 = [NSString stringWithFormat:@"%@/%d.png", inputPath, i];
+			NSLog(@"%ld", [network forwardPropagationWithInput:imageFileToArray(inputPath2)]);
+		}
 		[network release];
 	}
     return 0;
@@ -85,9 +75,9 @@ float* imageFileToArray(NSString *path)
 	{  
 		int tmpByte = (m_PixelBuf[index + 1] + m_PixelBuf[index + 2] + m_PixelBuf[index + 3]) / 3;  
 		if (tmpByte >= 128)  
-			array[i] = 1;
-		else  
 			array[i] = 0;
+		else  
+			array[i] = 1;
 		i++;
 	}    
 	return array;

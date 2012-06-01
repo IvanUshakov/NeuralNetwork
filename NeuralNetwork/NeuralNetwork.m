@@ -33,6 +33,7 @@
 	for (NSInteger i = 0; i < _numInputs; i++) {
 		sum += _weights[i] * data[i];
 	}
+	//NSLog(@"%f", sum);
 	_lastActivation = [self activationFunction:sum];
 	return _lastActivation;
 }
@@ -40,7 +41,6 @@
 - (void)backwardPropagationWithError:(float)error data:(float[])data
 {
 	for (NSInteger i = 0; i < _numInputs; i++) {
-		//TODO: fix?
 		_weights[i] = _weights[i] + _learningRate * error * data[i];
 	}
 }
@@ -62,7 +62,7 @@
 {
 	self = [super init];
 	if (self) {
-		_learningRate = 0.7;
+		_learningRate = 0.07;
 		_numHiddenNeurons = numHiddenNeurons;
 		_numOutputs = numOutputs;
 		_hiddenNeurons = malloc(sizeof(Neuron*) * _numHiddenNeurons);
