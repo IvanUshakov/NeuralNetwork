@@ -1,250 +1,566 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		2A974AE21578971F00A45F8C /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A974AE11578971F00A45F8C /* AppKit.framework */; };
-		2A974AE51578973000A45F8C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A974AE41578973000A45F8C /* QuartzCore.framework */; };
-		2AA5FDD215773F0400F70367 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA5FDD115773F0400F70367 /* Foundation.framework */; };
-		2AA5FDD515773F0400F70367 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5FDD415773F0400F70367 /* main.m */; };
-		2AA5FDD915773F0400F70367 /* NeuralNetwork.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2AA5FDD815773F0400F70367 /* NeuralNetwork.1 */; };
-		2AA5FDE115773F4A00F70367 /* NeuralNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5FDE015773F4A00F70367 /* NeuralNetwork.m */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		2AA5FDCB15773F0400F70367 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-				2AA5FDD915773F0400F70367 /* NeuralNetwork.1 in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
-/* Begin PBXFileReference section */
-		2A974AE11578971F00A45F8C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		2A974AE41578973000A45F8C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		2AA5FDCD15773F0400F70367 /* NeuralNetwork */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = NeuralNetwork; sourceTree = BUILT_PRODUCTS_DIR; };
-		2AA5FDD115773F0400F70367 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		2AA5FDD415773F0400F70367 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		2AA5FDD715773F0400F70367 /* NeuralNetwork-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NeuralNetwork-Prefix.pch"; sourceTree = "<group>"; };
-		2AA5FDD815773F0400F70367 /* NeuralNetwork.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = NeuralNetwork.1; sourceTree = "<group>"; };
-		2AA5FDDF15773F4A00F70367 /* NeuralNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NeuralNetwork.h; sourceTree = "<group>"; };
-		2AA5FDE015773F4A00F70367 /* NeuralNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NeuralNetwork.m; sourceTree = "<group>"; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		2AA5FDCA15773F0400F70367 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2A974AE51578973000A45F8C /* QuartzCore.framework in Frameworks */,
-				2A974AE21578971F00A45F8C /* AppKit.framework in Frameworks */,
-				2AA5FDD215773F0400F70367 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		2AA5FDC215773F0400F70367 = {
-			isa = PBXGroup;
-			children = (
-				2A974AE41578973000A45F8C /* QuartzCore.framework */,
-				2A974AE11578971F00A45F8C /* AppKit.framework */,
-				2AA5FDD315773F0400F70367 /* NeuralNetwork */,
-				2AA5FDD015773F0400F70367 /* Frameworks */,
-				2AA5FDCE15773F0400F70367 /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		2AA5FDCE15773F0400F70367 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				2AA5FDCD15773F0400F70367 /* NeuralNetwork */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		2AA5FDD015773F0400F70367 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				2AA5FDD115773F0400F70367 /* Foundation.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		2AA5FDD315773F0400F70367 /* NeuralNetwork */ = {
-			isa = PBXGroup;
-			children = (
-				2AA5FDD415773F0400F70367 /* main.m */,
-				2AA5FDD815773F0400F70367 /* NeuralNetwork.1 */,
-				2AA5FDD615773F0400F70367 /* Supporting Files */,
-				2AA5FDDF15773F4A00F70367 /* NeuralNetwork.h */,
-				2AA5FDE015773F4A00F70367 /* NeuralNetwork.m */,
-			);
-			path = NeuralNetwork;
-			sourceTree = "<group>";
-		};
-		2AA5FDD615773F0400F70367 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				2AA5FDD715773F0400F70367 /* NeuralNetwork-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		2AA5FDCC15773F0400F70367 /* NeuralNetwork */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2AA5FDDC15773F0400F70367 /* Build configuration list for PBXNativeTarget "NeuralNetwork" */;
-			buildPhases = (
-				2AA5FDC915773F0400F70367 /* Sources */,
-				2AA5FDCA15773F0400F70367 /* Frameworks */,
-				2AA5FDCB15773F0400F70367 /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = NeuralNetwork;
-			productName = NeuralNetwork;
-			productReference = 2AA5FDCD15773F0400F70367 /* NeuralNetwork */;
-			productType = "com.apple.product-type.tool";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		2AA5FDC415773F0400F70367 /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				LastUpgradeCheck = 0430;
-				ORGANIZATIONNAME = "ООО Скрипт";
-			};
-			buildConfigurationList = 2AA5FDC715773F0400F70367 /* Build configuration list for PBXProject "NeuralNetwork" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-			);
-			mainGroup = 2AA5FDC215773F0400F70367;
-			productRefGroup = 2AA5FDCE15773F0400F70367 /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				2AA5FDCC15773F0400F70367 /* NeuralNetwork */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXSourcesBuildPhase section */
-		2AA5FDC915773F0400F70367 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2AA5FDD515773F0400F70367 /* main.m in Sources */,
-				2AA5FDE115773F4A00F70367 /* NeuralNetwork.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin XCBuildConfiguration section */
-		2AA5FDDA15773F0400F70367 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx;
-			};
-			name = Debug;
-		};
-		2AA5FDDB15773F0400F70367 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				SDKROOT = macosx;
-			};
-			name = Release;
-		};
-		2AA5FDDD15773F0400F70367 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "NeuralNetwork/NeuralNetwork-Prefix.pch";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		2AA5FDDE15773F0400F70367 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "NeuralNetwork/NeuralNetwork-Prefix.pch";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		2AA5FDC715773F0400F70367 /* Build configuration list for PBXProject "NeuralNetwork" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2AA5FDDA15773F0400F70367 /* Debug */,
-				2AA5FDDB15773F0400F70367 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2AA5FDDC15773F0400F70367 /* Build configuration list for PBXNativeTarget "NeuralNetwork" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2AA5FDDD15773F0400F70367 /* Debug */,
-				2AA5FDDE15773F0400F70367 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
-	};
-	rootObject = 2AA5FDC415773F0400F70367 /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>02E430F4EE584287BCA95995</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>libPods.a</string>
+			<key>path</key>
+			<string>libPods.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>2A974AE11578971F00A45F8C</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>AppKit.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/AppKit.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>2A974AE21578971F00A45F8C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>2A974AE11578971F00A45F8C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>2A974AE41578973000A45F8C</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>QuartzCore.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/QuartzCore.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>2A974AE51578973000A45F8C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>2A974AE41578973000A45F8C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>2AA5FDC215773F0400F70367</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>2A974AE41578973000A45F8C</string>
+				<string>2A974AE11578971F00A45F8C</string>
+				<string>2AA5FDD315773F0400F70367</string>
+				<string>2AA5FDD015773F0400F70367</string>
+				<string>2AA5FDCE15773F0400F70367</string>
+				<string>497D1F1A698D4080B00510A2</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>2AA5FDC415773F0400F70367</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>LastUpgradeCheck</key>
+				<string>0430</string>
+				<key>ORGANIZATIONNAME</key>
+				<string></string>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>2AA5FDC715773F0400F70367</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+			</array>
+			<key>mainGroup</key>
+			<string>2AA5FDC215773F0400F70367</string>
+			<key>productRefGroup</key>
+			<string>2AA5FDCE15773F0400F70367</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>2AA5FDCC15773F0400F70367</string>
+			</array>
+		</dict>
+		<key>2AA5FDC715773F0400F70367</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>2AA5FDDA15773F0400F70367</string>
+				<string>2AA5FDDB15773F0400F70367</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>2AA5FDC915773F0400F70367</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>2AA5FDD515773F0400F70367</string>
+				<string>2AA5FDE115773F4A00F70367</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>2AA5FDCA15773F0400F70367</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>2A974AE51578973000A45F8C</string>
+				<string>2A974AE21578971F00A45F8C</string>
+				<string>2AA5FDD215773F0400F70367</string>
+				<string>2F08C6473B6B4D7AB15E33DE</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>2AA5FDCB15773F0400F70367</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>dstPath</key>
+			<string>/usr/share/man/man1/</string>
+			<key>dstSubfolderSpec</key>
+			<string>0</string>
+			<key>files</key>
+			<array>
+				<string>2AA5FDD915773F0400F70367</string>
+			</array>
+			<key>isa</key>
+			<string>PBXCopyFilesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>1</string>
+		</dict>
+		<key>2AA5FDCC15773F0400F70367</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>2AA5FDDC15773F0400F70367</string>
+			<key>buildPhases</key>
+			<array>
+				<string>2AA5FDC915773F0400F70367</string>
+				<string>2AA5FDCA15773F0400F70367</string>
+				<string>2AA5FDCB15773F0400F70367</string>
+				<string>4A4BCF416B3C4FCE892C46B9</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>NeuralNetwork</string>
+			<key>productName</key>
+			<string>NeuralNetwork</string>
+			<key>productReference</key>
+			<string>2AA5FDCD15773F0400F70367</string>
+			<key>productType</key>
+			<string>com.apple.product-type.tool</string>
+		</dict>
+		<key>2AA5FDCD15773F0400F70367</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>compiled.mach-o.executable</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>NeuralNetwork</string>
+			<key>path</key>
+			<string>NeuralNetwork</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>2AA5FDCE15773F0400F70367</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>2AA5FDCD15773F0400F70367</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>2AA5FDD015773F0400F70367</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>2AA5FDD115773F0400F70367</string>
+				<string>02E430F4EE584287BCA95995</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>2AA5FDD115773F0400F70367</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>Foundation.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/Foundation.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>2AA5FDD215773F0400F70367</key>
+		<dict>
+			<key>fileRef</key>
+			<string>2AA5FDD115773F0400F70367</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>2AA5FDD315773F0400F70367</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>2AA5FDD415773F0400F70367</string>
+				<string>2AA5FDD815773F0400F70367</string>
+				<string>2AA5FDD615773F0400F70367</string>
+				<string>2AA5FDDF15773F4A00F70367</string>
+				<string>2AA5FDE015773F4A00F70367</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>NeuralNetwork</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>2AA5FDD415773F0400F70367</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>main.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>2AA5FDD515773F0400F70367</key>
+		<dict>
+			<key>fileRef</key>
+			<string>2AA5FDD415773F0400F70367</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>2AA5FDD615773F0400F70367</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>2AA5FDD715773F0400F70367</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>2AA5FDD715773F0400F70367</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>NeuralNetwork-Prefix.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>2AA5FDD815773F0400F70367</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.man</string>
+			<key>path</key>
+			<string>NeuralNetwork.1</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>2AA5FDD915773F0400F70367</key>
+		<dict>
+			<key>fileRef</key>
+			<string>2AA5FDD815773F0400F70367</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>2AA5FDDA15773F0400F70367</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>ARCHS</key>
+				<string>$(ARCHS_STANDARD_64_BIT)</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_ENABLE_OBJC_EXCEPTIONS</key>
+				<string>YES</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
+				<string>NO</string>
+				<key>GCC_VERSION</key>
+				<string>com.apple.compilers.llvm.clang.1_0</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>MACOSX_DEPLOYMENT_TARGET</key>
+				<string>10.7</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>SDKROOT</key>
+				<string>macosx</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>2AA5FDDB15773F0400F70367</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>ARCHS</key>
+				<string>$(ARCHS_STANDARD_64_BIT)</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>YES</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf-with-dsym</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_ENABLE_OBJC_EXCEPTIONS</key>
+				<string>YES</string>
+				<key>GCC_VERSION</key>
+				<string>com.apple.compilers.llvm.clang.1_0</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>MACOSX_DEPLOYMENT_TARGET</key>
+				<string>10.7</string>
+				<key>SDKROOT</key>
+				<string>macosx</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>2AA5FDDC15773F0400F70367</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>2AA5FDDD15773F0400F70367</string>
+				<string>2AA5FDDE15773F0400F70367</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>2AA5FDDD15773F0400F70367</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>497D1F1A698D4080B00510A2</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>NeuralNetwork/NeuralNetwork-Prefix.pch</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>2AA5FDDE15773F0400F70367</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>497D1F1A698D4080B00510A2</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>NeuralNetwork/NeuralNetwork-Prefix.pch</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>2AA5FDDF15773F4A00F70367</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>NeuralNetwork.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>2AA5FDE015773F4A00F70367</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>NeuralNetwork.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>2AA5FDE115773F4A00F70367</key>
+		<dict>
+			<key>fileRef</key>
+			<string>2AA5FDE015773F4A00F70367</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>2F08C6473B6B4D7AB15E33DE</key>
+		<dict>
+			<key>fileRef</key>
+			<string>02E430F4EE584287BCA95995</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>497D1F1A698D4080B00510A2</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Pods.xcconfig</string>
+			<key>sourceTree</key>
+			<string>SOURCE_ROOT</string>
+		</dict>
+		<key>4A4BCF416B3C4FCE892C46B9</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Pods-resources.sh"
+</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>2AA5FDC415773F0400F70367</string>
+</dict>
+</plist>
