@@ -21,7 +21,7 @@
 		_lastActivation = 0;
 		_weights = malloc(sizeof(float) * _numInputs);
 		for (NSInteger i = 0; i < _numInputs; i++) {
-			_weights[i] = (float)rand() / RAND_MAX;
+			_weights[i] = (float)rand() / RAND_MAX - 0.5f;
 		}
 	}
 	return self;
@@ -62,7 +62,7 @@
 {
 	self = [super init];
 	if (self) {
-		_learningRate = 0.1;
+		_learningRate = 0.7;
 		_numHiddenNeurons = numHiddenNeurons;
 		_numOutputs = numOutputs;
 		_hiddenNeurons = malloc(sizeof(Neuron*) * _numHiddenNeurons);
@@ -94,9 +94,11 @@
 {
 	for (NSInteger i = 0; i < _numHiddenNeurons; i++) {
 		_hiddenActivations[i] = [_hiddenNeurons[i] forwardPropagationWithData:data];
+		//NSLog(@"_hiddenActivations[%ld] = %f", i, _hiddenActivations[i]);
 	}
 	for (NSInteger i = 0; i < _numOutputs; i++) {
 		_outputActivations[i] = [_outputNeurons[i] forwardPropagationWithData:_hiddenActivations];
+		//NSLog(@"_outputActivations[%ld] = %f", i, _outputActivations[i]);
 	}
 	return [self findMax:_outputActivations numvalues:_numOutputs];
 }
@@ -116,7 +118,7 @@
 	for (NSInteger i = 0; i < _numHiddenNeurons; i++) {
 		float weightDeltaH = 0;
 		for (NSInteger j = 0; j < _numOutputs; j++) {
-			weightDeltaH += errors[i] * [_outputNeurons[i] weights][i];
+			weightDeltaH += errors[j] * [_outputNeurons[j] weights][i];
 		}
 		float lastActivation = [_hiddenNeurons[i] lastActivation];
 		float errorTerm = weightDeltaH * lastActivation * (1 - lastActivation);
