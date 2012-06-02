@@ -33,7 +33,6 @@
 	for (NSInteger i = 0; i < _numInputs; i++) {
 		sum += _weights[i] * data[i];
 	}
-	//NSLog(@"%f", sum);
 	_lastActivation = [self activationFunction:sum];
 	return _lastActivation;
 }
@@ -62,7 +61,7 @@
 {
 	self = [super init];
 	if (self) {
-		_learningRate = 0.07;
+		_learningRate = 0.69999;
 		_numHiddenNeurons = numHiddenNeurons;
 		_numOutputs = numOutputs;
 		_hiddenNeurons = malloc(sizeof(Neuron*) * _numHiddenNeurons);

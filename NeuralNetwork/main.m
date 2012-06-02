@@ -41,16 +41,25 @@ int main(int argc, const char * argv[])
 //		}
 
 		NSString *path = [NSString stringWithFormat:@"%@/numbers", [[NSFileManager defaultManager] currentDirectoryPath]];
-		for (NSInteger i = 0; i < 69; i++)
+		for (NSInteger i = 1; i < 91; i++)
 			for (NSInteger j = 0; j <= 9; j++) {
 				NSString *path2 = [NSString stringWithFormat:@"%@/%d/%d.png", path, j, i];
 				[network backwardPropagationWithInput:imageFileToArray(path2) result:j];
 			}
 		
-		NSString  *inputPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
 		for (NSInteger i = 0; i <= 9; i++) {
-			NSString  *inputPath2 = [NSString stringWithFormat:@"%@/%d.png", inputPath, i];
-			NSLog(@"%ld", [network forwardPropagationWithInput:imageFileToArray(inputPath2)]);
+			NSInteger count = 0;
+			for (NSInteger j = 1; j < 91; j++) {
+				NSString *path2 = [NSString stringWithFormat:@"%@/%d/%d.png", path, i, j];
+				NSInteger result = [network forwardPropagationWithInput:imageFileToArray(path2)];
+				if (result == i) {
+					count++;
+				}
+				else {
+					NSLog(@"Error:%ld - %ld - %ld", i,  j, result);
+				}
+			}
+			NSLog(@"%ld - %ld - %f", i, count, (float)count / 90);
 		}
 		[network release];
 	}
