@@ -61,7 +61,7 @@
 {
 	self = [super init];
 	if (self) {
-		_learningRate = 0.6999999582767;
+		_learningRate = 0.29;
 		_numHiddenNeurons = numHiddenNeurons;
 		_numOutputs = numOutputs;
 		_hiddenNeurons = malloc(sizeof(Neuron*) * _numHiddenNeurons);
@@ -93,11 +93,9 @@
 {
 	for (NSInteger i = 0; i < _numHiddenNeurons; i++) {
 		_hiddenActivations[i] = [_hiddenNeurons[i] forwardPropagationWithData:data];
-		//NSLog(@"_hiddenActivations[%ld] = %f", i, _hiddenActivations[i]);
 	}
 	for (NSInteger i = 0; i < _numOutputs; i++) {
 		_outputActivations[i] = [_outputNeurons[i] forwardPropagationWithData:_hiddenActivations];
-		//NSLog(@"_outputActivations[%ld] = %f", i, _outputActivations[i]);
 	}
 	return [self findMax:_outputActivations numvalues:_numOutputs];
 }
@@ -108,7 +106,7 @@
 	float *errors = malloc(sizeof(float) * _numOutputs);
 	for (NSInteger i = 0; i < _numOutputs; i++)
 	{
-		float fire = (i == result) ? 1 : 0;
+		float fire = (i == result) ? 0.9 : 0.1;
 		float lastActivation = [_outputNeurons[i] lastActivation];
 		float errorTerm = lastActivation * (1 - lastActivation) * (fire - lastActivation);
 		errors[i] = errorTerm;
