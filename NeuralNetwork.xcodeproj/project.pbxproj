@@ -13,6 +13,9 @@
 		2AA5FDD515773F0400F70367 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5FDD415773F0400F70367 /* main.m */; };
 		2AA5FDD915773F0400F70367 /* NeuralNetwork.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2AA5FDD815773F0400F70367 /* NeuralNetwork.1 */; };
 		2AA5FDE115773F4A00F70367 /* NeuralNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA5FDE015773F4A00F70367 /* NeuralNetwork.m */; };
+		2AFBCCE0157B561100C2EBB7 /* App.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFBCCDF157B561100C2EBB7 /* App.m */; };
+		2AFBCCE3157BDEB900C2EBB7 /* ColoredTerminal.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFBCCE2157BDEB900C2EBB7 /* ColoredTerminal.m */; };
+		2AFBCCE7157BDF8200C2EBB7 /* ImagesProcessing.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFBCCE6157BDF8200C2EBB7 /* ImagesProcessing.m */; };
 		2F08C6473B6B4D7AB15E33DE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E430F4EE584287BCA95995 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +43,12 @@
 		2AA5FDD815773F0400F70367 /* NeuralNetwork.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = NeuralNetwork.1; sourceTree = "<group>"; };
 		2AA5FDDF15773F4A00F70367 /* NeuralNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NeuralNetwork.h; sourceTree = "<group>"; };
 		2AA5FDE015773F4A00F70367 /* NeuralNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NeuralNetwork.m; sourceTree = "<group>"; };
+		2AFBCCDE157B561100C2EBB7 /* App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = App.h; sourceTree = "<group>"; };
+		2AFBCCDF157B561100C2EBB7 /* App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = App.m; sourceTree = "<group>"; };
+		2AFBCCE2157BDEB900C2EBB7 /* ColoredTerminal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColoredTerminal.m; sourceTree = "<group>"; };
+		2AFBCCE4157BDED200C2EBB7 /* ColoredTerminal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColoredTerminal.h; sourceTree = "<group>"; };
+		2AFBCCE5157BDF8200C2EBB7 /* ImagesProcessing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagesProcessing.h; sourceTree = "<group>"; };
+		2AFBCCE6157BDF8200C2EBB7 /* ImagesProcessing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagesProcessing.m; sourceTree = "<group>"; };
 		497D1F1A698D4080B00510A2 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -95,6 +104,12 @@
 				2AA5FDD615773F0400F70367 /* Supporting Files */,
 				2AA5FDDF15773F4A00F70367 /* NeuralNetwork.h */,
 				2AA5FDE015773F4A00F70367 /* NeuralNetwork.m */,
+				2AFBCCDE157B561100C2EBB7 /* App.h */,
+				2AFBCCDF157B561100C2EBB7 /* App.m */,
+				2AFBCCE2157BDEB900C2EBB7 /* ColoredTerminal.m */,
+				2AFBCCE4157BDED200C2EBB7 /* ColoredTerminal.h */,
+				2AFBCCE5157BDF8200C2EBB7 /* ImagesProcessing.h */,
+				2AFBCCE6157BDF8200C2EBB7 /* ImagesProcessing.m */,
 			);
 			path = NeuralNetwork;
 			sourceTree = "<group>";
@@ -178,6 +193,9 @@
 			files = (
 				2AA5FDD515773F0400F70367 /* main.m in Sources */,
 				2AA5FDE115773F4A00F70367 /* NeuralNetwork.m in Sources */,
+				2AFBCCE0157B561100C2EBB7 /* App.m in Sources */,
+				2AFBCCE3157BDEB900C2EBB7 /* ColoredTerminal.m in Sources */,
+				2AFBCCE7157BDF8200C2EBB7 /* ImagesProcessing.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

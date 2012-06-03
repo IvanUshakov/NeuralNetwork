@@ -3,7 +3,7 @@
 //  NeuralNetwork
 //
 //  Created by Иван Ушаков on 31.05.12.
-//  Copyright (c) 2012 ООО Скрипт. All rights reserved.
+//  Copyright (c) 2012 Иван Ушаков. All rights reserved.
 //
 
 #import "NeuralNetwork.h"
