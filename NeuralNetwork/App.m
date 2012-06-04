@@ -8,7 +8,7 @@
 
 #import "App.h"
 #import "ImagesProcessing.h"
-#import "ColoredTerminal.h"
+#import "Terminal.h"
 
 @interface App()
 @property (nonatomic, retain) NeuralNetwork		*network;
@@ -19,6 +19,7 @@
 - (void)trainWithFolder:(NSString*)folder examplesCount:(NSInteger)count;
 - (void)solveFile:(NSString*)file;
 - (void)showHelp;
+- (void)showVersion;
 @end
 
 @implementation App
@@ -46,6 +47,15 @@
 
 - (int)run
 {
+	if ([self.argumentPackage boolValueOfFlag:@"h"]) {
+		[self showHelp];
+		return 0;
+	}
+	if ([self.argumentPackage boolValueOfFlag:@"v"]) {
+		[self showVersion];
+		return 0;
+	}
+	
 	BOOL tarainFlag = [self.argumentPackage boolValueOfFlag:@"t"];
 	BOOL solveFlag = [self.argumentPackage boolValueOfFlag:@"s"];
 	if ((!tarainFlag && !solveFlag) || (tarainFlag && solveFlag)) {
@@ -54,6 +64,7 @@
 										 userInfo:nil];
 
 		[self showError:error];
+		return -1;
 	}
 	if (tarainFlag) {
 		[self trainWithFolder:@"" examplesCount:90];
@@ -72,27 +83,27 @@
 		case TooManySignatures:
 			count = [[[error userInfo] objectForKey:FSAPErrorDictKeys.CountOfTooManySignatures] unsignedIntegerValue];
 			signature = [[error userInfo] objectForKey:FSAPErrorDictKeys.TooManyOfThisSignature];
-			NSLog(@"You used %lu too many of the \"%@\" argument!", count-1, signature.longNames);
-			NSLog(@"Use flag -h for help.");
+			PrintLn(@"You used %lu too many of the \"%@\" argument!", count-1, signature.longNames);
+			PrintLn(@"Use flag -h for help.");
 			break;
 			
 		case ArgumentMissingValue:
-			NSLog(@"You used flag with required value, but not set value!");
-			NSLog(@"Use flag -h for help.");
+			PrintLn(@"You used flag with required value, but not set value!");
+			PrintLn(@"Use flag -h for help.");
 			break;
 			
 		case UnknownArgument:
-			NSLog(@"You used an unknown flag: %@!", [[error userInfo] objectForKey:FSAPErrorDictKeys.UnknownSignature]);
-			NSLog(@"Use flag -h for help.");
+			PrintLn(@"You used an unknown flag: %@!", [[error userInfo] objectForKey:FSAPErrorDictKeys.UnknownSignature]);
+			PrintLn(@"Use flag -h for help.");
 			break;
 			
 		case MissingSignatures:
-			NSLog(@"You should suse one of the next flags: -t or -s!");
-			NSLog(@"Use flag -h for help.");
+			PrintLn(@"You should use one of the next flags: -t or -s!");
+			PrintLn(@"Use flag -h for help.");
 			break;
 		default:
-			NSLog(@"Miscelleneous error %@", error);
-			NSLog(@"Use flag -h for help.");
+			PrintLn(@"Miscelleneous error %@", error);
+			PrintLn(@"Use flag -h for help.");
 			break;
 	}
 }
@@ -116,21 +127,28 @@
 				count++;
 			}
 		}
-		NSLog(@"%ld - %f%%", i, (float)count / 90 * 100);
+		PrintLn(@"%ld - %f%%", i, (float)count / 90 * 100);
 	}
 }
 
 - (void)solveFile:(NSString*)file
 {
-	NSLog(@"%ld", [self.network forwardPropagationWithInput:imageFileToArray(file)]);
+	PrintLn(@"%ld", [self.network forwardPropagationWithInput:imageFileToArray(file)]);
 }
 
 - (void)showHelp
 {
-	NSArray *signatures = [self parserSignatures];
-	[signatures enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-		printf("%s\n", [[obj descriptionWithLocale:nil indent:1] UTF8String]);
-	}];
+	PrintLn(@"You should use one of the next mode:");
+	PrintLn(@"	-t --train	train neural network");
+	PrintLn(@"	-s --solve	solve image using neural network");
+	PrintLn(@"");
+	PrintLn(@"Other flags:");
+
+}
+
+- (void)showVersion
+{
+	PrintLn(@"0.0.1-alpha");
 }
 
 #pragma mark - private
@@ -150,7 +168,15 @@
 																						longNames:@"examples-count" 
 																						 required:NO
 																				  multipleAllowed:NO];
-	return [NSArray arrayWithObjects:helpSig, versionSig, trainSig, solveSig, networkFileSig, examplesCountSig, nil];	
+	FSArgumentSignature	*inputDirSig = [FSArgumentSignature argumentSignatureAsNamedArgument:@"d"
+																					  longNames:@"input-dir" 
+																					   required:NO
+																				multipleAllowed:NO];
+	FSArgumentSignature	*inputFileSig = [FSArgumentSignature argumentSignatureAsNamedArgument:@"i"
+																					  longNames:@"input-file" 
+																					   required:NO
+																				multipleAllowed:NO];
+	return [NSArray arrayWithObjects:helpSig, versionSig, solveSig, trainSig, networkFileSig, inputFileSig, inputDirSig, examplesCountSig, nil];	
 }
 
 - (void)parseParametrs

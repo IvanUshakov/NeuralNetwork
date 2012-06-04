@@ -1,5 +1,5 @@
 //
-//  ColoredTerminal.h
+//  Terminal.h
 //  NeuralNetwork
 //
 //  Created by Иван Ушаков on 03.06.12.
@@ -23,4 +23,8 @@
 #define CT_CYAN			6
 #define	CT_WHITE		7
 
-void textcolor(int attr, int fg, int bg);
+void TextColor(int attr, int fg, int bg);
+void Print(NSString* format, ...);
+void PrintLn(NSString *format, ...);
+void PrintLnThenDie(NSString* format, ...);
+
