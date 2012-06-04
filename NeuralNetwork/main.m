@@ -22,31 +22,17 @@ int main(int argc, const char * argv[])
 {
 	@autoreleasepool {
 		NeuralNetwork *network = [[NeuralNetwork alloc] initWithNumInputs:336 numHiddenNeurons:130 numOutputs:10];
-		
-//		NSString *path = [NSString stringWithFormat:@"%@/numbers", [[NSFileManager defaultManager] currentDirectoryPath]];
-//		NSURL *directoryURL = [NSURL fileURLWithPath:path];
-//		NSDirectoryEnumerator *enumerator = [[NSFileManager defaultManager] enumeratorAtURL:directoryURL
-//																 includingPropertiesForKeys:NULL
-//																					options:NSDirectoryEnumerationSkipsSubdirectoryDescendants
-//																			   errorHandler:^(NSURL *url, NSError *error) {return YES;}];
-//		for (NSURL *url in enumerator) { 
-//			NSInteger result = [[url lastPathComponent] integerValue];
-//			NSDirectoryEnumerator *enumerator2 = [[NSFileManager defaultManager] enumeratorAtURL:url
-//																	 includingPropertiesForKeys:NULL
-//																						options:NSDirectoryEnumerationSkipsHiddenFiles
-//																				   errorHandler:^(NSURL *url, NSError *error) {return YES;}];
-//			for (NSURL *url in enumerator2) { 
-//				[network backwardPropagationWithInput:imageFileToArray([url path]) result:result];
-//			}
-//		}
 
 		NSString *path = [NSString stringWithFormat:@"%@/numbers", [[NSFileManager defaultManager] currentDirectoryPath]];
-		for (NSInteger i = 1; i < 91; i++)
+		for (NSInteger i = 1; i < 91; i++) {
 			for (NSInteger j = 0; j <= 9; j++) {
 				NSString *path2 = [NSString stringWithFormat:@"%@/%d/%d.png", path, j, i];
 				[network backwardPropagationWithInput:imageFileToArray(path2) result:j];
 			}
+		}
 		
+		NSLog(@"Обучающай выборка: ");
+		NSInteger allRight = 0;
 		for (NSInteger i = 0; i <= 9; i++) {
 			NSInteger count = 0;
 			for (NSInteger j = 1; j < 91; j++) {
@@ -59,8 +45,45 @@ int main(int argc, const char * argv[])
 					NSLog(@"Error:%ld - %ld - %ld", i,  j, result);
 				}
 			}
-			NSLog(@"%ld - %ld - %f", i, count, (float)count / 90);
+			NSLog(@"%ld - %ld / %d - %0.2f%%", i, count, 90, (float)count / 90 * 100);
+			allRight += count;
 		}
+		NSLog(@"all - %ld / %d - %0.2f%%", allRight, 900, (float)allRight / 900 * 100);
+		NSLog(@"\n");
+		
+		NSURL *directoryURL = [NSURL fileURLWithPath:path];
+		NSDirectoryEnumerator *enumerator = [[NSFileManager defaultManager] enumeratorAtURL:directoryURL
+																 includingPropertiesForKeys:NULL
+																					options:NSDirectoryEnumerationSkipsSubdirectoryDescendants | NSDirectoryEnumerationSkipsHiddenFiles
+																			   errorHandler:^(NSURL *url, NSError *error) {return YES;}];
+		NSInteger allCount = 0;
+		NSInteger allTrueCount = 0;
+		NSLog(@"Все образцы: ");
+		for (NSURL *url in enumerator) { 
+			NSInteger expectedResult = [[url lastPathComponent] integerValue];
+			NSDirectoryEnumerator *enumerator2 = [[NSFileManager defaultManager] enumeratorAtURL:url
+																	 includingPropertiesForKeys:NULL
+																						options:NSDirectoryEnumerationSkipsHiddenFiles
+																				   errorHandler:^(NSURL *url, NSError *error) {return YES;}];
+			NSInteger count = 0;
+			NSInteger trueCount = 0;
+			for (NSURL *url in enumerator2) { 
+				NSInteger result = [network forwardPropagationWithInput:imageFileToArray([url path])];
+				count++;
+				if (result == expectedResult) {
+					trueCount++;
+				}
+				else {
+					//NSLog(@"Error:%ld - %ld - %ld", expectedResult,  count, result);
+				}
+			}
+			NSLog(@"%ld - %ld / %ld - %0.2f%%", expectedResult, trueCount, count, (float)trueCount / count * 100);
+			allCount += count;
+			allTrueCount += trueCount;
+		}
+		NSLog(@"---");
+		NSLog(@"all - %ld / %ld - %0.2f%%", allTrueCount, allCount, (float)allTrueCount / allCount * 100);
+		
 		[network release];
 	}
     return 0;
